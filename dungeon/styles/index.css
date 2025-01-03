@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;    
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 10%);
+}
+
+.game-canva {
+    width: 896px;
+    height: 577px;
+    background-color: hsl(0, 0%, 0%);
+}
+
+.game-status {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 832px;
+    height: 5rem;
+    background-color: hsl(0, 0%, 25%);
+    border: 0.2rem solid hsl(0, 0%, 15%);
+    & .player-health {
+        display: flex;
+        flex-basis: 20%;
+        justify-content: space-evenly;
+    }
+    & .level {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 20%;
+        color: hsl(0, 0%, 80%);
+    }
+    & .player-itens {
+        flex-basis: 40%;
+        box-sizing: content-box;
+        display: flex;
+        align-items: center;
+        & a {            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        & a > .small {
+            width: 2rem;            
+        }
+        & .small {
+            transform: scale(1.5);
+        }
+        & a > .medium {
+            width: 3rem;
+        }
+        & .medium {
+            transform: scale(1.2);
+        }
+        & a > .big {
+            width: 4rem;            
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "ground_spikes": {
+        "texturePath": "../imagens/espinhos.png",
+        "texture": "",
+        "cooldown": 0,
+        "maxCooldown": 0,
+        "damage": 1
+    },
+    "arrows": {
+        "texturePath": "",
+        "texture": "",
+        "cooldown": 0,
+        "maxCooldown": 0,
+        "damage": 1
+    },
+    "flamethrower": {
+        "texturePath": "",
+        "texture": "",
+        "cooldown": 0,
+        "maxCooldown": 0,
+        "damage": 1
+    },
+    "wall_spikes": {
+        "texturePath": "",
+        "texture": "",
+        "cooldown": 0,
+        "maxCooldown": 0,
+        "damage": 1
+    }
+}

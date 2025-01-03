@@ -15,8 +15,9 @@ class Game {
         const monster1 = new Monster(this.canvas, 100, 500);
         const monster2 = new Monster(this.canvas, 500, 200);
         const monster3 = new Monster(this.canvas, 50, 300);
+        const monster4 = new Monster(this.canvas, 155, 240);
         this.turrets.push(...[turret1, turret2, turret3]);
-        this.monsters.push(...[monster1, monster2, monster3]);
+        this.monsters.push(...[monster1, monster2, monster3, monster4]);
     }
     init() {
         this.ctx.imageSmoothingEnabled = false;

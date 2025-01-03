@@ -1,0 +1,280 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive, sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: hsl(0, 0%, 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    width: 40rem;
+    height: 32rem;
+    display: flex;
+    & .left-area {
+        flex-basis: 60%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;        
+        background-color: hsl(200, 50%, 50%);
+        color: white;
+        gap: 0.5rem;
+        position: relative;
+        & .pc {
+            font-size: 10rem;
+            animation: pc-idle-animation 1.5s infinite alternate;
+            user-select: none;
+            &:hover {
+                cursor: pointer;                
+            }
+        }
+        & .clickAnimation {
+            animation: pc-click-animation 0.2s forwards;
+        }
+        & .dinheiro {
+            display: flex;
+            gap: 0.3rem;
+        }
+        & .dinheiroPorSegundo {
+            display: flex;
+            gap: 0.2rem;
+        }
+        & .dinheiroPorClick {
+            display: flex;
+            gap: 0.4rem;
+        }
+        & .cafe {
+            position: absolute;
+            font-size: 4rem;
+            cursor: pointer;
+            animation: cafe-idle-animation 1.5s infinite alternate;
+            user-select: none;
+            
+            &.fadeOut {
+                animation: fade-out 0.5s forwards;
+            }
+        }
+    }
+    & .right-area {
+        height: 100%;
+        overflow: scroll;        
+        flex: 1;
+        background-color: hsl(200, 50%, 30%);
+        padding: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        color: white;
+        &::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+        & .info {
+            width: 1.5rem;
+            aspect-ratio: 1/1;
+            border: 0.1rem solid hsl(0, 0%, 10%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.2rem;
+            background-color: hsl(220, 50%, 50%);
+            user-select: none;
+            cursor: pointer;
+        }
+        & .upgrades {
+            display: flex;
+            position: relative;
+            gap: 0.2rem;
+            padding-inline: 0.2rem;
+            & .upgrade {
+                width: 2rem;
+                aspect-ratio: 1/1;
+                border: 0.13rem solid hsl(0, 0%, 20%);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: hsl(0, 0%, 50%);
+                cursor: pointer;
+                z-index: 3;
+                user-select: none;                
+                &:hover::before {
+                    content: attr(data-name);
+                    white-space: pre-wrap;
+                    color: black;
+                    position: absolute;
+                    font-size: 0.8rem;
+                    background-color: antiquewhite;
+                    left: 0;
+                    top: 2.5rem;
+                    max-width: 90%;
+                    margin-inline: 0.3rem;
+                    padding: 0.2rem;
+                    border: 0.2rem solid hsl(0, 0%, 20%);
+                    border-radius: 0.3rem;
+                }                
+                &.indisponivel {
+                    background-color: hsl(0, 0%, 10%);
+                    & .icone {
+                        filter: contrast(60%) brightness(50%);
+                    }
+                }
+            }
+        }
+        & .tarefas {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        & .tarefa {
+            display: flex;
+            width: 100%;
+            height: 5rem;
+            border: 0.1rem solid yellow;
+            border-radius: 0.2rem;
+            flex-wrap: wrap;
+            background-color: hsla(180, 70%, 50%, 50%);
+            padding: 0.2rem;
+            & .qtd {
+                flex-basis: 10%;
+                text-align: center;
+                align-self: center;
+                background-color: hsl(230, 50%, 50%);
+                font-size: 0.8rem;
+                display: flex;
+                padding: 0.2rem;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;                
+            }
+            & .nome {
+                flex-basis: 62%;
+                align-self: center;
+                padding-left: 0.3rem;
+            }
+            & .comprar {
+                flex: 1;
+                display: flex;
+                align-items: end;
+                justify-content: end;
+                gap: 0.1rem;
+                & button {
+                    padding-inline: 0.45rem;
+                    background-color: hsl(0, 0%, 10%);
+                    border: none;
+                    color: white;
+                    border-radius: 0.2rem;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover::after {
+                        content: attr(data-value);
+                        position: absolute;
+                        bottom: 100%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        padding-inline: 0.3rem;
+                        font-size: 0.7rem;
+                        background-color: antiquewhite;
+                        color: black;
+                        border: 0.1rem solid black;
+                    }
+                }
+            }
+            & .geracao {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: right;
+                padding-right: 1rem;
+                margin-right: 0.8rem;
+                position: relative;
+                & .barra {
+                    right: 0.5rem;
+                    bottom: 0.1rem;
+                    position: absolute;                    
+                }
+                & .segundo {
+                    position: absolute;
+                    right: 0;
+                    bottom: 0%;
+                }                
+            }
+            & .custo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.3rem;
+                margin-left: 0.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@keyframes pc-idle-animation {
+    0% {        
+        transform: rotate(0) scale(1);
+    }
+    25% {
+        transform: rotate(-2deg) scale(1.02);        
+    }
+    75% {
+        transform: rotate(0) scale(1);
+    }
+    100% {
+        transform: rotate(2deg) scale(1.02);
+    }
+}
+
+@keyframes pc-click-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cafe-idle-animation {
+    0% {
+        transform: rotate(0) scale(1);
+    }
+    25% {
+        transform: rotate(5deg) scale(1.1);        
+    }
+    75% {
+        transform: rotate(0) scale(1);
+    }
+    100% {
+        transform: rotate(-5deg) scale(1.1);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        filter: opacity(100%);
+        transform: rotate(0);
+    }
+    50% {
+        pointer-events: none;
+    }
+    100% {
+        filter: opacity(0%);
+        transform: rotate(360deg);
+        pointer-events: none;
+    }
+}
