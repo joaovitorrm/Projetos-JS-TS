@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="./velha.js"></script>
+    <link rel="stylesheet" href="./index.css"/>
+    <title>Jogo da velha</title>
+</head>
+<body>
+    <h1 class="game-name">Jogo da velha</h1>
+    <div class="game-container">
+        <div class="rows">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="rows">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="rows">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="player-1 player">
+            <div class="player-logo"></div>
+            <h2 class="player-name"></h2>
+            <div class="piece-frame"></div>
+            <h3 class="player-victories">
+                <span>Vitórias</span>
+                <span class="wins-amount">0</span>
+            </h3>            
+        </div>
+        <div class="player-2 player">
+            <div class="player-logo"></div>
+            <h2 class="player-name"></h2>
+            <div class="piece-frame"></div>
+            <h3 class="player-victories">
+                <span>Vitórias</span>
+                <span class="wins-amount">0</span>
+            </h3>
+        </div>
+    </div>
+    <div class="reset-container">
+        <button class="reset-btn">Reset</button>
+        <span><span class="want-reset">0</span>/<span class="total-players">0</span> Jogadores</span>
+    </div>
+</body>
+</html>
