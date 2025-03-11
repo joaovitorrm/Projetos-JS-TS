@@ -11,8 +11,34 @@
 <body>
     
     <main class="game-container">
-        <span class="game-name blue">Quem Sou Eu</span>
-        <div class="cards blue">
+        <span class="game-name">Quem Sou Eu</span>
+        <div class="cards"></div>
+        <div class="player-1 player">
+            <div class="your-face">Outro Jogador</div>
+            <div class="player-face"></div>
+            <p class="player-face-name name"></p>
+        </div>
+        <div class="player-2 player">
+            <div class="your-face blue">Você</div>
+            <div class="player-face blue">
+                <div class="unknown"></div>
+            </div>
+            <div class="player-face-name blue name">?</div>
+            <button class="guess-btn">Adivinhar</button>
+        </div>
+        <div class="chat-box">
+            <div class="messages"></div>
+            <div class="inputs-container">
+                <div class="text-container">
+                    <input type="text" class="chat-text-input">
+                    <button class="send-btn"><p class="send-icon">⬆</p></button>
+                </div>
+                <div class="options-container">
+                    <button class="yes-btn">Sim</button>
+                    <button class="no-btn">Não</button>
+                </div>
+            </div>
+            <div class="win-container"></div>
         </div>
     </main>
 </body>

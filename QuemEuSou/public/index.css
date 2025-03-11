@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: cursive;
 }
 
 body, html {
@@ -16,26 +16,355 @@ body {
     background-color: hsl(0, 0%, 10%);
 }
 
+:root {
+    --main-blue-color: hsl(200, 50%, 50%);
+    --secondary-blue-color: hsl(200, 60%, 30%);
+    --main-red-color: hsl(0, 60%, 50%);
+    --secondary-red-color: hsl(0, 60%, 30%);
+}
+
 .game-container {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
+    justify-content: center;
     color: hsl(0, 0%, 90%);
     height: 30rem;
     max-height: 90dvh;    
     aspect-ratio: 1/1;
+    & .chat-box {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        width: 25rem;
+        & .win-container {
+            position: absolute;
+            bottom: 54%;
+            transform: translateY(50%);            
+            font-size: 3rem;            
+            width: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 6rem;
+            border-radius: 0.5rem;
+            &.win {
+                background-color: hsl(120, 50%, 50%);
+                display: flex;
+            }
+            &.lose {
+                background-color: hsl(0, 80%, 50%);
+                display: flex;
+            }
+        }
+        & .messages {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            margin-top: 1rem;
+            height: 6rem;
+            background-color: hsl(0, 0%, 20%);
+            width: 100%;
+            border-radius: 0.5rem;
+            padding-inline: 0.6rem;
+            padding-block: 0.3rem;
+            overflow-y: auto;
+            & span {                
+                padding-inline: 0.4rem;
+                padding-block: 0.2rem;
+                border-radius: 0.2rem;
+                max-width: 60%;
+                &.blue {
+                    background-color: var(--main-blue-color);
+                }
+                &.red {
+                    background-color: var(--main-red-color);
+                }
+            }
+        }
+        & .inputs-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0.5rem;
+            gap: 0.5rem;
+            & .text-container {
+                display: none;
+                width: 80%;
+                gap: 0.5rem;
+                &.visible {
+                    display: flex;
+                }
+            }
+            & .options-container {
+                display: none;
+                gap: 0.5rem;
+                &.visible {
+                    display: flex;
+                }
+            }
+            & .chat-text-input {
+                border: none;
+                flex: 1;
+                box-shadow: 0 3px hsl(0, 0%, 60%);
+                padding-inline: 0.2rem;
+            }
+            & .send-btn {
+                height: 100%;
+                aspect-ratio: 6/5;
+                overflow: hidden;
+                border: none;
+                border-radius: 0.2rem;
+                box-shadow: 0 6px hsl(210, 80%, 30%);
+                & .send-icon {
+                    transform: scaleX(2) scaleY(1.2);
+                    border: none;
+                    color: hsl(0, 0%, 90%);
+                    background-color: hsl(210, 80%, 50%);                    
+                }
+                &:active {
+                    transform: translateY(3px);
+                    box-shadow: 0 3px hsl(210, 80%, 30%);
+                }
+            }
+            & .yes-btn, .no-btn {
+                width: 3rem;
+                border: none;
+                color: hsl(0, 0%, 90%);
+                border-radius: 0.2rem;
+            }
+            & .yes-btn {
+                background-color: hsl(120, 60%, 50%);
+                box-shadow: 0 6px hsl(120, 60%, 30%);
+                &:active {
+                    transform: translateY(3px);
+                    box-shadow: 0 3px hsl(120, 60%, 30%);
+                }
+            }
+            & .no-btn {
+                background-color: hsl(0, 80%, 50%);
+                box-shadow: 0 6px hsl(0, 80%, 30%);
+                &:active {
+                    transform: translateY(3px);
+                    box-shadow: 0 3px hsl(0, 80%, 30%);
+                }
+            }
+        }
+    }
+    & .name {
+        background-color: hsl(50, 80%, 60%);
+        color: hsl(0, 0%, 20%);
+    }
+    &.blue {
+        & .game-name {            
+            background-color: var(--secondary-blue-color);
+        }
+        & .cards {
+            background: linear-gradient(135deg, var(--main-blue-color) 40%, var(--secondary-blue-color));
+        }
+        & .player-2 {
+            & .player-face {
+                border-right: 0.4rem solid var(--main-blue-color);
+                border-left: 0.4rem solid var(--main-blue-color);
+                border-top: 0.4rem solid var(--main-blue-color);
+            }
+            & .player-face-name {
+                border-right: 0.4rem solid var(--main-blue-color);
+                border-left: 0.4rem solid var(--main-blue-color);
+                border-bottom: 0.4rem solid var(--main-blue-color);
+            }
+            & .your-face {
+                background: linear-gradient(to left, var(--main-blue-color), var(--secondary-blue-color));
+            }
+        }        
+        & .player-1 {
+            & .player-face {
+                border-right: 0.4rem solid var(--main-red-color);
+                border-left: 0.4rem solid var(--main-red-color);
+                border-top: 0.4rem solid var(--main-red-color);
+            }
+            & .player-face-name {
+                border-right: 0.4rem solid var(--main-red-color);
+                border-left: 0.4rem solid var(--main-red-color);
+                border-bottom: 0.4rem solid var(--main-red-color);
+            }
+            & .your-face {
+                background: linear-gradient(to left, var(--main-red-color), var(--secondary-red-color));
+            }
+        }
+        & .messages {
+            & .blue {
+                align-self: start;
+            }
+            & .red {
+                align-self: end;
+            }
+        }
+    }
+    &.red {
+        & .game-name {            
+            background-color: var(--secondary-red-color);
+        }
+        & .cards {
+            background: linear-gradient(135deg, var(--main-red-color) 40%, var(--secondary-red-color));
+        }
+        & .player-2 {
+            & .player-face {
+                border-right: 0.4rem solid var(--main-red-color);
+                border-left: 0.4rem solid var(--main-red-color);
+                border-top: 0.4rem solid var(--main-red-color);
+            }
+            & .player-face-name {
+                border-right: 0.4rem solid var(--main-red-color);
+                border-left: 0.4rem solid var(--main-red-color);
+                border-bottom: 0.4rem solid var(--main-red-color);
+            }
+            & .your-face {
+                background: linear-gradient(to left, var(--main-red-color), var(--secondary-red-color));
+            }
+        }        
+        & .player-1 {
+            & .player-face {
+                border-right: 0.4rem solid var(--main-blue-color);
+                border-left: 0.4rem solid var(--main-blue-color);
+                border-top: 0.4rem solid var(--main-blue-color);
+            }
+            & .player-face-name {
+                border-right: 0.4rem solid var(--main-blue-color);
+                border-left: 0.4rem solid var(--main-blue-color);
+                border-bottom: 0.4rem solid var(--main-blue-color);
+            }
+            & .your-face {
+                background: linear-gradient(to left, var(--main-blue-color), var(--secondary-blue-color));
+            }
+        }
+        & .messages {
+            & .blue {
+                align-self: end;
+            }
+            & .red {
+                align-self: start;
+            }
+        }
+    }
+    & .player {
+        position: absolute;
+        width: 12.5rem;
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        & .guess-btn {
+            position: absolute;
+            top: 130%;
+            background-color: hsl(100, 50%, 50%);
+            border: none;
+            width: 8rem;
+            height: 2rem;
+            border-radius: 0.2rem;
+            color: hsl(0, 0%, 90%);
+            box-shadow: 0 6px hsl(100, 50%, 30%);
+            cursor: pointer;
+            transition: all 0.1s;
+            &.guessing {
+                transform: translateY(3px);
+                box-shadow: 0 3px hsl(100, 50%, 30%);
+                color: hsl(0, 0%, 10%);
+                animation: guessing infinite linear alternate 0.2s;
+            }
+            &.not-you {
+                background-color: hsl(0, 0%, 60%);
+                box-shadow: 0 6px hsl(0, 0%, 30%);
+            }
+        }
+        &.player-1 {
+            left: calc(100% + 3rem);
+        }
+        &.player-2 {
+            right: calc(100% + 3rem);
+        }
+        & .player-face {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 8rem;
+            width: 100%;
+            aspect-ratio: 1/1;
+            text-align: center;
+            border-top-right-radius: 5rem;
+            border-top-left-radius: 5rem;
+            background-color: hsl(0, 0%, 90%);
+            &:empty::after {
+                content: "?";
+                position: absolute;
+                font-size: 3rem;
+                color: hsl(0, 0%, 90%);
+                border-radius: 50%;
+                width: 8rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                aspect-ratio: 1/1;
+                background-color: hsl(0, 0%, 10%);
+            }
+        }
+        & .unknown {
+            width: 80%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            align-self: end;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(to right, hsl(0, 0%, 80%), hsl(0, 0%, 60%));
+            &::after {
+                content: "";
+                position: absolute;
+                width: 40%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background-color: hsl(0, 0%, 20%);
+                bottom: 38%;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                width: 60%;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background-color: hsl(0, 0%, 20%);
+                top: 65%;
+            }
+        }
+        & .player-face-name {
+            font-size: 2rem;
+            width: 100%;
+            height: 2.8rem;
+            text-align: center;
+        }
+        & .your-face {
+            position: absolute;
+            top: 110%;            
+            width: 100%;
+            text-align: center;
+            padding: 0.3rem;
+            border-radius: 0.4rem;
+        }
+    }
+    
     & .game-name {
         font-size: 2rem;        
         padding-block: 0.8rem;
         padding-inline: 1.5rem;
         border-top-right-radius: 1rem;
         border-top-left-radius: 1rem;
-        &.blue {
-            background-color: hsl(200, 60%, 30%);
-        }
-        &.red {
-            background-color: hsl(0, 60%, 30%);
-        }
     }
     & .cards {        
         height: 100%;
@@ -46,33 +375,32 @@ body {
         grid-template-rows: repeat(4, 1fr);
         align-content: center;
         padding: 1rem;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        &.blue {
-            background-color: hsl(200, 50%, 50%);
-        }
-        &.red {
-            background-color: hsl(0, 60%, 50%);
-        }
+        gap: 0.8rem;
+        flex-wrap: wrap;        
         & .card {
             width: 5rem;
             height: 100%;
             background-color: hsl(0, 0%, 90%);
             font-size: 2.2rem;
             gap: 0.5rem;
-            border: 0.2rem solid hsl(0, 0%, 20%);
             border-top-right-radius: 2rem;
             border-top-left-radius: 2rem;
             display: flex;
             flex-direction: column;
             justify-content: end;
             align-items: center;
+            transition: 0.2s all;
             &.down {
                 filter: grayscale(1) opacity(0.5);
             }
+            &.correct {
+                background-color: hsl(150, 50%, 50%);
+            }
+            &.wrong {
+                background-color: hsl(0, 0%, 10%);
+            }
             &:hover {
-                outline: 0.15rem solid hsl(50, 50%, 50%);
-                outline-offset: 3px;
+                transform: scale(1.1);
             }
             & .icon {
                 transform: scale(1.3);
@@ -85,9 +413,16 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                background-color: hsl(150, 80%, 30%);
-                color: hsl(0, 0%, 90%);
             }
         }
+    }
+}
+
+@keyframes guessing {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
     }
 }
