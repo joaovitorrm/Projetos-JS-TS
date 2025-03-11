@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 10%);
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    color: hsl(0, 0%, 90%);
+    height: 30rem;
+    max-height: 90dvh;    
+    aspect-ratio: 1/1;
+    & .game-name {
+        font-size: 2rem;        
+        padding-block: 0.8rem;
+        padding-inline: 1.5rem;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        &.blue {
+            background-color: hsl(200, 60%, 30%);
+        }
+        &.red {
+            background-color: hsl(0, 60%, 30%);
+        }
+    }
+    & .cards {        
+        height: 100%;
+        aspect-ratio: 9/8;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        align-content: center;
+        padding: 1rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        &.blue {
+            background-color: hsl(200, 50%, 50%);
+        }
+        &.red {
+            background-color: hsl(0, 60%, 50%);
+        }
+        & .card {
+            width: 5rem;
+            height: 100%;
+            background-color: hsl(0, 0%, 90%);
+            font-size: 2.2rem;
+            gap: 0.5rem;
+            border: 0.2rem solid hsl(0, 0%, 20%);
+            border-top-right-radius: 2rem;
+            border-top-left-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: center;
+            &.down {
+                filter: grayscale(1) opacity(0.5);
+            }
+            &:hover {
+                outline: 0.15rem solid hsl(50, 50%, 50%);
+                outline-offset: 3px;
+            }
+            & .icon {
+                transform: scale(1.3);
+                user-select: none;
+            }
+            & .name {
+                font-size: 0.8rem;
+                width: 100%;
+                padding-top: 0.2rem;                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: hsl(150, 80%, 30%);
+                color: hsl(0, 0%, 90%);
+            }
+        }
+    }
+}
