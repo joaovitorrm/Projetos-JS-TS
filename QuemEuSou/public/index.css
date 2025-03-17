@@ -23,9 +23,40 @@ body {
     --secondary-red-color: hsl(0, 60%, 30%);
 }
 
+.join-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: hsl(0, 0%, 90%);
+    &.visible {
+        display: flex;
+    }
+    & .play-btn {
+        width: 80%;
+        height: 2rem;
+        background-color: hsl(120, 50%, 50%);
+        border: none;
+        border-radius: 0.2rem;
+        color: hsl(0, 0%, 90%);
+        box-shadow: 0 6px hsl(120, 50%, 30%);
+        margin-block: 1.5rem;
+        &:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px hsl(120, 50%, 30%);
+        }
+    }
+    & .amount {
+        display: flex;
+        & span {
+            padding-left: 0.5rem;
+        }
+    }
+}
+
 .game-container {
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -33,23 +64,86 @@ body {
     height: 30rem;
     max-height: 90dvh;    
     aspect-ratio: 1/1;
+    margin-bottom: 8rem;
+    &.visible {
+        display: flex;
+    }
+    & .player-action {
+        position: absolute;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        height: 90%;
+        aspect-ratio: 9/8;
+        z-index: 2;
+        top: 12.4%;
+        border-radius: 0.5rem;
+        background-color: hsla(0, 0%, 20%, 70%);
+        &.visible {
+            display: flex;
+        }
+        & .guess-btn {
+            background-color: hsl(100, 50%, 50%);
+            border: none;
+            width: 8rem;
+            height: 2rem;
+            border-radius: 0.2rem;
+            color: hsl(0, 0%, 90%);
+            box-shadow: 0 6px hsl(100, 50%, 30%);
+            cursor: pointer;
+            transition: all 0.1s;
+            &.guessing {
+                transform: translateY(3px);
+                box-shadow: 0 3px hsl(100, 50%, 30%);
+                color: hsl(0, 0%, 10%);
+                animation: guessing infinite linear alternate 0.2s;
+            }
+            &.not-you {
+                background-color: hsl(0, 0%, 60%);
+                box-shadow: 0 6px hsl(0, 0%, 30%);
+            }
+        }
+        & .ask-btn {
+            background-color: hsl(50, 60%, 50%);
+            border: none;
+            width: 8rem;
+            height: 2rem;
+            border-radius: 0.2rem;
+            color: hsl(0, 0%, 90%);
+            box-shadow: 0 6px hsl(50, 60%, 30%);
+            cursor: pointer;
+            transition: all 0.1s;
+            &.not-you {
+                background-color: hsl(0, 0%, 60%);
+                box-shadow: 0 6px hsl(0, 0%, 30%);
+            }
+            &.asking {
+                transform: translateY(3px);
+                box-shadow: 0 3px hsl(50, 60%, 30%);
+                color: hsl(0, 0%, 10%);
+            }
+        }
+    }
     & .chat-box {
         display: flex;
-        position: relative;
+        position: absolute;
         flex-direction: column;
         justify-content: end;
         align-items: center;
         width: 25rem;
+        margin-top: 1rem;
+        top: 103%;
         & .win-container {
             position: absolute;
-            bottom: 54%;
-            transform: translateY(50%);            
-            font-size: 3rem;            
+            top: 0;
+            font-size: 3rem;
             width: 100%;
+            height: 6rem;
             display: none;
             justify-content: center;
             align-items: center;
-            height: 6rem;
             border-radius: 0.5rem;
             &.win {
                 background-color: hsl(120, 50%, 50%);
@@ -64,7 +158,6 @@ body {
             display: flex;
             flex-direction: column;
             gap: 0.2rem;
-            margin-top: 1rem;
             height: 6rem;
             background-color: hsl(0, 0%, 20%);
             width: 100%;
@@ -93,10 +186,30 @@ body {
             gap: 0.5rem;
             & .text-container {
                 display: none;
+                position: relative;
                 width: 80%;
                 gap: 0.5rem;
                 &.visible {
                     display: flex;
+                    justify-content: center;
+                }
+                & .pass-turn-btn {
+                    position: absolute;
+                    top: 100%;
+                    width: 7rem;
+                    height: 1.5rem;
+                    margin-top: 1.5rem;
+                    border-radius: 0.1rem;
+                    background-color: hsl(180, 50%, 50%);
+                    color: hsl(0, 0%, 90%);
+                    box-shadow: 0 6px hsl(180, 50%, 30%);
+                    border: none;
+                    cursor: pointer;
+                    transition: all 0.1s;
+                    &:active {
+                        transform: translateY(3px);
+                        box-shadow: 0 3px hsl(180, 50%, 30%);
+                    }
                 }
             }
             & .options-container {
@@ -131,7 +244,8 @@ body {
                 }
             }
             & .yes-btn, .no-btn {
-                width: 3rem;
+                width: 4rem;
+                height: 2rem;
                 border: none;
                 color: hsl(0, 0%, 90%);
                 border-radius: 0.2rem;
@@ -152,6 +266,26 @@ body {
                     box-shadow: 0 3px hsl(0, 80%, 30%);
                 }
             }
+            & .reset-btn {
+                margin-top: 0.5rem;
+                display: none;
+                width: 5rem;
+                height: 1.8rem;
+                border: none;
+                border-radius: 0.2rem;
+                background-color: hsl(230, 50%, 50%);
+                box-shadow: 0 6px hsl(230, 50%, 30%);
+                color: hsl(0, 0%, 90%);                
+                &.visible {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:active {
+                        transform: translateY(3px);
+                        box-shadow: 0 3px hsl(230, 50%, 30%);
+                    }
+                }
+            }
         }
     }
     & .name {
@@ -165,7 +299,7 @@ body {
         & .cards {
             background: linear-gradient(135deg, var(--main-blue-color) 40%, var(--secondary-blue-color));
         }
-        & .player-2 {
+        & .player-1 {
             & .player-face {
                 border-right: 0.4rem solid var(--main-blue-color);
                 border-left: 0.4rem solid var(--main-blue-color);
@@ -180,7 +314,7 @@ body {
                 background: linear-gradient(to left, var(--main-blue-color), var(--secondary-blue-color));
             }
         }        
-        & .player-1 {
+        & .player-2 {
             & .player-face {
                 border-right: 0.4rem solid var(--main-red-color);
                 border-left: 0.4rem solid var(--main-red-color);
@@ -211,7 +345,7 @@ body {
         & .cards {
             background: linear-gradient(135deg, var(--main-red-color) 40%, var(--secondary-red-color));
         }
-        & .player-2 {
+        & .player-1 {
             & .player-face {
                 border-right: 0.4rem solid var(--main-red-color);
                 border-left: 0.4rem solid var(--main-red-color);
@@ -226,7 +360,7 @@ body {
                 background: linear-gradient(to left, var(--main-red-color), var(--secondary-red-color));
             }
         }        
-        & .player-1 {
+        & .player-2 {
             & .player-face {
                 border-right: 0.4rem solid var(--main-blue-color);
                 border-left: 0.4rem solid var(--main-blue-color);
@@ -258,34 +392,31 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        & .guess-btn {
+        z-index: 1;
+        & .answer {
             position: absolute;
-            top: 130%;
-            background-color: hsl(100, 50%, 50%);
-            border: none;
-            width: 8rem;
-            height: 2rem;
-            border-radius: 0.2rem;
-            color: hsl(0, 0%, 90%);
-            box-shadow: 0 6px hsl(100, 50%, 30%);
-            cursor: pointer;
-            transition: all 0.1s;
-            &.guessing {
-                transform: translateY(3px);
-                box-shadow: 0 3px hsl(100, 50%, 30%);
-                color: hsl(0, 0%, 10%);
-                animation: guessing infinite linear alternate 0.2s;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            /* background-color: hsl(0, 0%, 90%); */
+            border-radius: 50%;
+            padding: 1rem;            
+            z-index: -1;
+            bottom: 100%;
+            &.correct {
+                filter: hue-rotate(250deg);
+                animation: answer-animation-correct forwards normal 0.3s;
             }
-            &.not-you {
-                background-color: hsl(0, 0%, 60%);
-                box-shadow: 0 6px hsl(0, 0%, 30%);
+            &.wrong {
+                filter: hue-rotate(100deg);
+                animation: answer-animation-wrong forwards normal 0.3s;
             }
         }
+        
         &.player-1 {
-            left: calc(100% + 3rem);
+            right: calc(100% + 3rem);
         }
         &.player-2 {
-            right: calc(100% + 3rem);
+            left: calc(100% + 3rem);
         }
         & .player-face {
             display: flex;
@@ -371,6 +502,7 @@ body {
         aspect-ratio: 9/8;
         border-radius: 0.5rem;
         display: grid;
+        z-index: 1;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(4, 1fr);
         align-content: center;
@@ -424,5 +556,32 @@ body {
     }
     100% {
         transform: rotate(5deg);
+    }
+}
+
+@keyframes answer-animation-wrong {
+    0% {
+        transform: scale(0);
+        
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        
+    }
+}
+
+@keyframes answer-animation-correct {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1.1);
+        
     }
 }

@@ -25,10 +25,6 @@
             "name": "Festa"
         },
         {
-            "emoji": "😊",
-            "name": "Sorriso"
-        },
-        {
             "emoji": "👫",
             "name": "Amizade"
         },
@@ -69,10 +65,6 @@
             "name": "Dinheiro"
         },
         {
-            "emoji": "📈",
-            "name": "Tabelas"
-        },
-        {
             "emoji": "🚗",
             "name": "Carro"
         },
@@ -85,10 +77,6 @@
             "name": "Feliz"
         },
         {
-            "emoji": "😃",
-            "name": "Alegria"
-        },
-        {
             "emoji": "😄",
             "name": "Sorridente"
         },
@@ -99,10 +87,6 @@
         {
             "emoji": "😂",
             "name": "Risada"
-        },
-        {
-            "emoji": "🤣",
-            "name": "Gargalhada"
         },
         {
             "emoji": "😊",
@@ -147,6 +131,62 @@
         {
             "emoji": "😡",
             "name": "Furioso"
+        },
+        {
+            "emoji": "🤖",
+            "name": "Robo"
+        },
+        {
+            "emoji": "🔥",
+            "name": "Fogo"
+        },
+        {
+            "emoji": "🔔",
+            "name": "Sino"
+        },
+        {
+            "emoji": "🥸",
+            "name": "Disfarce"
+        },
+        {
+            "emoji": "😴",
+            "name": "Dormindo"
+        },
+        {
+            "emoji": "💩",
+            "name": "Cocô"
+        },
+        {
+            "emoji": "👽",
+            "name": "Alien"
+        },
+        {
+            "emoji": "👾",
+            "name": "Game"
+        },
+        {
+            "emoji": "💀",
+            "name": "Caveira"
+        },
+        {
+            "emoji": "👹",
+            "name": "Demônio"
+        },
+        {
+            "emoji": "👻",
+            "name": "Fantasma"
+        },
+        {
+            "emoji": "🧟‍♂️",
+            "name": "Zumbi"
+        },
+        {
+            "emoji": "🧙",
+            "name": "Bruxo"
+        },
+        {
+            "emoji": "🐲",
+            "name": "Dragão"
         }
     ]
 }
