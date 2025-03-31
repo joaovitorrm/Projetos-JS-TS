@@ -1,0 +1,58 @@
+{
+    "sapo_verde": {
+        "path": "/assets/sapin_verde_borda.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "sapo_verde_caminhar" : {
+        "path": "/assets/sapin_verde_caminhar_borda.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "agua" : {
+        "path": "/assets/agua.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "agua_movimento" : {
+        "path": "/assets/agua_movimento.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "tora" : {
+        "path": "/assets/tora.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "torinha" : {
+        "path" : "/assets/torinha.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "derrota_aiger" : {
+        "path" : "/assets/derrota_aiger.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "estrada_fudida" : {
+        "path" : "/assets/estrada_fudida.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "estrada": {
+        "path" : "/assets/estrada.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "carro": {
+        "path" : "/assets/carro2.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "areia": {
+        "path" : "/assets/areia.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "parasol": {
+        "path" : "/assets/parasol.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "bola_volei" : {
+        "path" : "/assets/bola_volei.png",
+        "size": {"width": 30, "height": 30}
+    },
+    "castelo_areia" : {
+        "path" : "/assets/castelo_areia.png",
+        "size": {"width": 30, "height": 30}
+    }
+}

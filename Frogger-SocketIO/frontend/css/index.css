@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background-color: hsl(616, 25%, 26%);
+    display: grid;
+    place-content: center;
+}
+
+canvas {
+    width: 660px;
+    height: 840px;
+    image-rendering: pixelated;
+}
