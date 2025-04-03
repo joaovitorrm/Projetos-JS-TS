@@ -4,8 +4,10 @@ class TextureManager {
     constructor() {
         this.textures = {};
     }
-    setTexture(name) {
-        this.textures[name] = loadTexture(name);
+    async setTexture(name) {
+        if (this.textures[name]) return this.textures[name];
+        this.textures[name] = await loadTexture(name);
+        return this.textures[name];
     }
     getTexture(name) {
         return this.textures[name];

@@ -6,8 +6,8 @@ class Player {
 
     constructor(ctx) {
         this.ctx = ctx;
-        this.x = -20;
-        this.y = -20;
+        this.x = 0;
+        this.y = 0;
         this.width = 100;
         this.height = 100;
         this.moveSpeed = 60;
@@ -20,8 +20,6 @@ class Player {
 
         this.player_sprite = texture.sapo_verde;
         this.player_hitbox = {
-            x: this.x,
-            y: this.y,
             offsetX: 20,
             offsetY: 20,
             width: 60,
@@ -86,19 +84,18 @@ class Player {
         }
 
         // restore context to initial position
-        this.ctx.translate(-this.x - this.width / 2, -this.y - this.height / 2);
+        this.ctx.translate(-this.x - this.player_hitbox.width / 2, -this.y - this.player_hitbox.height / 2);
 
         this.ctx.imageSmoothingEnabled = false;
 
-        this.ctx.drawImage(this.player_sprite, this.x, this.y, this.width, this.height);
+        this.ctx.drawImage(this.player_sprite, this.x - this.player_hitbox.offsetX, this.y - this.player_hitbox.offsetY, this.width, this.height);        
 
         // and restore the coords system
         this.ctx.restore();
-
-        /* this.ctx.rect(this.player_hitbox.x + this.player_hitbox.offsetX, this.player_hitbox.y + this.player_hitbox.offsetY, this.player_hitbox.width, this.player_hitbox.height);
-        this.ctx.strokeStyle = "red";
-        this.ctx.stroke(); */
         
+        this.ctx.rect(this.x + this.player_hitbox.offsetX, this.y + this.player_hitbox.offsetY, this.player_hitbox.width, this.player_hitbox.height);
+        this.ctx.strokeStyle = "red";
+        this.ctx.stroke();
 
     }
 
@@ -115,14 +112,16 @@ class Player {
                 this.player_sprite = texture.sapo_verde;
             }, 250)
         }
-
-        this.player_hitbox.x = this.x;
-        this.player_hitbox.y = this.y;
         
         if (this.move < this.moveDelay) {
             this.move++;
         }
 
+    }
+
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y;
     }
 }
 
