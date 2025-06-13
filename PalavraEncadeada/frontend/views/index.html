@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="/scripts/index.js" defer></script>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="game-title">Palavra Encadeada</h1>
+
+    <main class="game-container">
+        <div class="words">
+            <div class="main-word">
+                <span>Abobora</span>
+                <div class="other-words">
+                    <span>Palavra</span>
+                    <span>Outra</span>
+                </div>
+            </div>
+        </div>
+        <div class="word-input">
+            <input type="text" class="text-input">
+            <input type="button" class="btn-input" value="Enviar">
+        </div>
+    </main>
+
+    <aside class="players-container">
+        <div class="players">
+            <h2>Players</h2>
+            <div class="players-list">
+                <span>
+                    João
+                </span>
+            </div>
+        </div>
+        <div class="admin-options"></div>
+    </aside>
+
+</body>
+</html>

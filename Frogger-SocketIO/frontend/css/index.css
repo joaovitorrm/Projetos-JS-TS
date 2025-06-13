@@ -19,4 +19,5 @@ canvas {
     width: 660px;
     height: 840px;
     image-rendering: pixelated;
+    background-color: black;
 }

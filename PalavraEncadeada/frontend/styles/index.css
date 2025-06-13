@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(0, 0%, 90%);
+    display: grid;
+    grid-template: 
+    ". n ." 15%
+    ". g p" auto
+    ". . ." 15% / 20% auto 20%;
+}
+
+.game-title {
+    grid-area: n;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    grid-area: g;
+    border: 0.2rem solid red;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+    overflow: hidden;
+    & .words {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & .main-word {
+            position: relative;
+            font-size: 6rem;
+        }
+        & .other-words {
+            font-size: 3rem;
+            position: absolute;
+            gap: 2rem;
+            display: flex;
+            right: calc(100% + 2rem);
+            top: 0;
+            bottom: 0;
+            transform: translateY(100%);
+        }
+    }
+    & .word-input {
+        flex-basis: 15%;
+        display: flex;
+        & .text-input, .btn-input {
+            height: 1.8rem;
+            padding: 0.3rem;
+            border: none;
+        }
+    }
+}
+
+.players-container {
+    display: flex;
+    grid-area: p;
+    border: 0.2rem solid blue;
+}
+
+@media only screen and (max-width: 1200px) {
+    body {
+        grid-template: 
+        ". n ." 15%
+        ". g ." auto
+        ". p ." 15% / 10% auto 10%;
+    }
+}

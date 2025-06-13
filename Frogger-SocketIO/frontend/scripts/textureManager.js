@@ -9,8 +9,8 @@ class TextureManager {
         this.textures[name] = await loadTexture(name);
         return this.textures[name];
     }
-    getTexture(name) {
-        return this.textures[name];
+    async getTexture(name) {
+        return await this.textures[name];
     }
 }
 

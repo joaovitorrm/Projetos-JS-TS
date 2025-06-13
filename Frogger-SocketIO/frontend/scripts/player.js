@@ -92,10 +92,10 @@ class Player {
 
         // and restore the coords system
         this.ctx.restore();
-        
-        this.ctx.rect(this.x + this.player_hitbox.offsetX, this.y + this.player_hitbox.offsetY, this.player_hitbox.width, this.player_hitbox.height);
+
+        /* this.ctx.rect(this.x + this.player_hitbox.offsetX, this.y + this.player_hitbox.offsetY, this.player_hitbox.width, this.player_hitbox.height);
         this.ctx.strokeStyle = "red";
-        this.ctx.stroke();
+        this.ctx.stroke(); */
 
     }
 
@@ -122,6 +122,14 @@ class Player {
     setPosition(x, y) {
         this.x = x;
         this.y = y;
+    }
+
+    getPosition() {
+        return {x: this.x, y: this.y};
+    }
+
+    getDirection() {
+        
     }
 }
 

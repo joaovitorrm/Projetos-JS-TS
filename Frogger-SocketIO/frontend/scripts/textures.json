@@ -49,10 +49,26 @@
     },
     "bola_volei" : {
         "path" : "/assets/bola_volei.png",
-        "size": {"width": 60, "height": 60}
+        "size": {"width": 40, "height": 40}
     },
     "castelo_areia" : {
         "path" : "/assets/castelo_areia.png",
         "size": {"width": 60, "height": 60}
+    },
+    "grama": {
+        "path": "/assets/grama.png",
+        "size": {"width": 660, "height": 180}
+    },
+    "arbusto": {
+        "path": "/assets/arbusto.png",
+        "size": {"width": 60, "height": 60}
+    },
+    "terra": {
+        "path": "/assets/terra.png",
+        "size": {"width": 660, "height": 180}
+    },
+    "meio_fio": {
+        "path": "/assets/meio_fio.png",
+        "size": {"width": 660, "height": 180}
     }
 }
